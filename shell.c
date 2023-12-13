@@ -111,7 +111,7 @@ int main(void)
                         free(command);
                         free(av); /*je teste ici free ya rebbi */
                         free(buffer);
-                        return (1);
+                        return (0);
                     }
                 } else {
                     wait(&status);
