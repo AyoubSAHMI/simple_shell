@@ -116,7 +116,7 @@ int main(void)
                     perror(av[0]);
                     free(av);
                     free(buffer);
-		    return (0); /*changement de -1 à 1 */
+		     return (1); /*changement de -1 à 1 */
                 }
 
                 if (pid == 0)
@@ -128,7 +128,7 @@ int main(void)
                         free(command);
                         free(av); /*je teste ici free ya rebbi */
                         free(buffer);
-			return (0);      /*change return value from 0 to 1*/
+			return (1);      /*change return value from 0 to 1*/
                     }
                 }
 		else
