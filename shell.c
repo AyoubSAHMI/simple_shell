@@ -67,9 +67,10 @@ int main(void)
         av[i] = NULL;
         if (_strcmp(av[0], "exit") == 0)
 	  {
-            free(buffer);
+		  /* free(buffer);
             free(av);
-	    return (0);
+	    return (0);*/
+		  exit(EXIT_SUCCESS);
         }
         if (_strcmp(av[0], "env") == 0)
 	  {
