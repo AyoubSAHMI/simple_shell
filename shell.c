@@ -35,7 +35,7 @@ int main(void)
             }
             free(buffer);
              /* Free av here reje3ha matnssach */
-            exit(1);
+            return (1);
         }
 
         /* Trim newline character */
@@ -66,7 +66,7 @@ int main(void)
             free(buffer);
             free(av);
             exit(0);
-	    return (0);  /*add return*/
+	    return (0);/*add return*/
         }
 
         if (_strcmp(av[0], "env") == 0) {
@@ -82,7 +82,7 @@ int main(void)
                        perror("getcwd");
                        free(buffer);
                        free(av);
-		       exit(0);
+		       return (1);;
                 }/* salat hnaya */
                 if (program_path != NULL)
                 {
