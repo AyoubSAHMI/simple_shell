@@ -19,7 +19,7 @@ int main(void)
 
     char buffer_i[16]; /* Assuming the line number won't be longer than 16 digits */
 
-    while (a != EOF)
+    while (1)
     {
         if (interactive) {
             /* Display shell prompt in interactive mode*/
@@ -106,7 +106,7 @@ int main(void)
                     perror(av[0]);
                     free(av);
                     free(buffer);
-                    return (-1); /*changement de -1 à 1 */
+                    return (1); /*changement de -1 à 1 */
                 }
 
                 if (pid == 0) {

@@ -7,17 +7,16 @@
 char *fullPath(char *command)
 {
 extern char **environ;
- char *dir, *fullpath, *paths, *path/* = _getenv("PATH")*/;
+ char *dir, *fullpath, *paths, *path = _getenv("PATH");
 struct stat buff;
 int i = 0;
 char *name;
-/**
+
 if (path == NULL)
 {
 perror("not found\n");
 return (NULL);
 }
-*/
 while (environ[i] != NULL)
 {
 name = strtok(environ[i], "=");
