@@ -19,7 +19,7 @@ int main(void)
 
     char buffer_i[16]; /* Assuming the line number won't be longer than 16 digits */
 
-    while (1)
+    while (a != EOF)
     {
         if (interactive)
 	  {
@@ -70,6 +70,7 @@ int main(void)
 	  {
             free(buffer);
             free(av);
+	    return (0);
             exit(0);
         }
         if (_strcmp(av[0], "env") == 0)
