@@ -69,7 +69,7 @@ int main(void)
 	  {
 	    free(buffer);
             free(av);
-	    /* return (0);*/
+	    return (0);
 	    exit(EXIT_SUCCESS);
         }
         if (_strcmp(av[0], "env") == 0)
@@ -116,6 +116,8 @@ int main(void)
                     free(av);
                     free(buffer);
 		     return (1); /*changement de -1 à 1 */
+		     exit(EXIT_FAILURE);
+
                 }
 
                 if (pid == 0)
@@ -144,4 +146,5 @@ int main(void)
     free(buffer);
     free(av); /* nzidou we7da khra */
     return (0);
+    exit(EXIT_SUCCESS);
 }
