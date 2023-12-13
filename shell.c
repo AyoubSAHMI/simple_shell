@@ -66,7 +66,7 @@ int main(void)
         if (_strcmp(av[0], "exit") == 0) {
             free(buffer);
             free(av);
-            exit(0);
+            exit(EXIT_SUCCESS);
         }
 
         if (_strcmp(av[0], "env") == 0) {
@@ -107,7 +107,7 @@ int main(void)
                     perror(av[0]);
                     free(av);
                     free(buffer);
-		    exit(1); /*changement de -1 à 1 */
+		    return (EXIT_FAILURE); /*changement de -1 à 1 */
                 }
 
                 if (pid == 0) {
@@ -117,7 +117,7 @@ int main(void)
                         free(command);
                         free(av); /*je teste ici free ya rebbi */
                         free(buffer);
-                        exit(0);      /*change return value from 0 to 1*/
+			return (EXIT_FAILURE);      /*change return value from 0 to 1*/
                     }
                 } else {
                     wait(&status);
@@ -130,5 +130,5 @@ int main(void)
     }
     free(buffer);
     free(av); /* nzidou we7da khra */
-    exit(0);
+    return (EXIT_SUCCESS);
 }

@@ -9,7 +9,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <errno.h>/*zedt hadi*/
-
+#include <fcntl.h>
 extern char **environ;
 
 int _strlen(char *s);
