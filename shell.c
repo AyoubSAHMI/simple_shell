@@ -19,7 +19,7 @@ int main(void)
 
     char buffer_i[16]; /* Assuming the line number won't be longer than 16 digits */
 
-    while (a != EOF)
+    while (1)
     {
         if (interactive)
 	  {
@@ -37,7 +37,7 @@ int main(void)
                 write(STDOUT_FILENO, "\n", 1);
             }
             free(buffer);
-	    exit(1);
+	    return (1);
 	    
         }
 
@@ -55,7 +55,7 @@ int main(void)
         av = malloc(sizeof(char *) * 1024);
 	if (av == NULL) /*add condition */
 	  {
-	    exit(1);
+	    return (1);
 	  }
         token = strtok(buffer, " \n");
 	i = 0;
@@ -71,7 +71,7 @@ int main(void)
             free(buffer);
             free(av);
 	    return (0);
-            exit(0);
+           
         }
         if (_strcmp(av[0], "env") == 0)
 	  {
@@ -90,7 +90,7 @@ int main(void)
                        perror("getcwd");
                        free(buffer);
                        free(av);
-		       exit(1);;
+		       return (1);;
                 }/* salat hnaya */
                 if (program_path != NULL)
                 {
@@ -116,7 +116,7 @@ int main(void)
                     perror(av[0]);
                     free(av);
                     free(buffer);
-		    exit(1); /*changement de -1 à 1 */
+		    return (1); /*changement de -1 à 1 */
                 }
 
                 if (pid == 0)
@@ -128,7 +128,7 @@ int main(void)
                         free(command);
                         free(av); /*je teste ici free ya rebbi */
                         free(buffer);
-			exit(1);      /*change return value from 0 to 1*/
+			return (1);      /*change return value from 0 to 1*/
                     }
                 }
 		else
