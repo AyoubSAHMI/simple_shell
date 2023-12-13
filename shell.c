@@ -108,7 +108,6 @@ int main(void)
                 write(STDERR_FILENO, av[0], _strlen(av[0]));
                 write(STDERR_FILENO, ": No such file or directory\n", 28);
                 free(program_path); /*an7etou hadi hnaya */
-		exit(1);
               }
             else
 	      {
