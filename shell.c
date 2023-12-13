@@ -34,7 +34,6 @@ int main(void)
                 write(STDOUT_FILENO, "\n", 1);
             }
             free(buffer);
-             /* Free av here reje3ha matnssach */
 	    exit(1);
 	    
         }
@@ -51,7 +50,7 @@ int main(void)
         av = malloc(sizeof(char *) * 1024);
 	if (av == NULL) /*add condition */
 	  {
-	  return (-1);
+	  exit(1);
 	  }
         token = strtok(buffer, " \n");
         
@@ -66,13 +65,14 @@ int main(void)
         if (_strcmp(av[0], "exit") == 0) {
             free(buffer);
             free(av);
-            exit(EXIT_SUCCESS);
+            exit(0);
         }
 
         if (_strcmp(av[0], "env") == 0) {
             _env();
-	    exit(0);
-        }
+	    
+        }else
+	  {
             pexist = pathexist(av[0]);
 
             if (pexist == 0) {
@@ -83,7 +83,7 @@ int main(void)
                        perror("getcwd");
                        free(buffer);
                        free(av);
-		       return (1);;
+		       exit(1);;
                 }/* salat hnaya */
                 if (program_path != NULL)
                 {
@@ -107,7 +107,7 @@ int main(void)
                     perror(av[0]);
                     free(av);
                     free(buffer);
-		    return (EXIT_FAILURE); /*changement de -1 à 1 */
+		    exit(1); /*changement de -1 à 1 */
                 }
 
                 if (pid == 0) {
@@ -117,18 +117,18 @@ int main(void)
                         free(command);
                         free(av); /*je teste ici free ya rebbi */
                         free(buffer);
-			return (EXIT_FAILURE);      /*change return value from 0 to 1*/
+			exit(1);      /*change return value from 0 to 1*/
                     }
                 } else {
                     wait(&status);
                     free(command);
                 }
             }
-
+	  }
         free(av);/*Anjerbou hnaya */
      /* Do not free av here, as it may have been overwritten by execve */
     }
     free(buffer);
     free(av); /* nzidou we7da khra */
-    return (EXIT_SUCCESS);
+    return (0);
 }
