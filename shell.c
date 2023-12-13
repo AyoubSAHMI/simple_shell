@@ -83,7 +83,7 @@ int main(void)
 	  {
             pexist = pathexist(av[0]);
 
-            if (pexist == 0)
+            if (pexist == 1)
 	      {
                 program_path = getcwd(NULL, 0);
                 /* anzidou hadi */

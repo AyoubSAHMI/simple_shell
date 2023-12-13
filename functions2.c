@@ -88,7 +88,7 @@ while (dir != NULL)
         {
                 free(paths1);
                 free(place); /* je teste ici free */
-                return (1);
+                return (0);
         }
         else
         {
@@ -99,11 +99,11 @@ while (dir != NULL)
 free(paths1);
 if (stat(command, &statbuff) == 0)
 {
+return (0);
+}
 return (1);
 }
-return (0);
-}
-return (0);
+return (1);
 }
 /**
 * _getenv - A function that return the environment
