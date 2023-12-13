@@ -101,7 +101,7 @@ int main(void)
                     perror(av[0]);
                     free(av);
                     free(buffer);
-                    return (-1);
+                    return (1); /*changement de -1 à 1 */
                 }
 
                 if (pid == 0) {
