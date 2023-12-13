@@ -19,7 +19,7 @@ int main(void)
 
     char buffer_i[16]; /* Assuming the line number won't be longer than 16 digits */
 
-    while (a != EOF)
+    while (1)
     {
         if (interactive)
 	  {
@@ -37,7 +37,7 @@ int main(void)
                 write(STDOUT_FILENO, "\n", 1);
             }
             free(buffer);
-	    exit(1);
+	    return (0);
 	    
         }
 
