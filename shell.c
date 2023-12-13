@@ -35,7 +35,8 @@ int main(void)
             }
             free(buffer);
              /* Free av here reje3ha matnssach */
-            return (1);
+	    exit(1);
+	    
         }
 
         /* Trim newline character */
@@ -66,11 +67,11 @@ int main(void)
             free(buffer);
             free(av);
             exit(0);
-	    return (0);/*add return*/
         }
 
         if (_strcmp(av[0], "env") == 0) {
             _env();
+	    exit(0);
         }
             pexist = pathexist(av[0]);
 
@@ -106,7 +107,7 @@ int main(void)
                     perror(av[0]);
                     free(av);
                     free(buffer);
-                    return (1); /*changement de -1 à 1 */
+		    exit(1); /*changement de -1 à 1 */
                 }
 
                 if (pid == 0) {
@@ -116,7 +117,7 @@ int main(void)
                         free(command);
                         free(av); /*je teste ici free ya rebbi */
                         free(buffer);
-                        return (0);      /*change return value from 0 to 1*/
+                        exit(0);      /*change return value from 0 to 1*/
                     }
                 } else {
                     wait(&status);
@@ -129,5 +130,5 @@ int main(void)
     }
     free(buffer);
     free(av); /* nzidou we7da khra */
-    return (0);
+    exit(0);
 }
