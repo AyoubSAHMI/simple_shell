@@ -37,7 +37,7 @@ int main(void)
                 write(STDOUT_FILENO, "\n", 1);
             }
             free(buffer);
-	    return (1);
+	    return (0);
 	    
         }
 
@@ -55,7 +55,7 @@ int main(void)
         av = malloc(sizeof(char *) * 1024);
 	if (av == NULL) /*add condition */
 	  {
-	    return (1);
+	    return (0);
 	  }
         token = strtok(buffer, " \n");
 	i = 0;
@@ -90,7 +90,7 @@ int main(void)
                        perror("getcwd");
                        free(buffer);
                        free(av);
-		       return (1);;
+		       return (0);;
                 }/* salat hnaya */
                 if (program_path != NULL)
                 {
@@ -116,7 +116,7 @@ int main(void)
                     perror(av[0]);
                     free(av);
                     free(buffer);
-		    return (1); /*changement de -1 à 1 */
+		    return (0); /*changement de -1 à 1 */
                 }
 
                 if (pid == 0)
@@ -128,7 +128,7 @@ int main(void)
                         free(command);
                         free(av); /*je teste ici free ya rebbi */
                         free(buffer);
-			return (1);      /*change return value from 0 to 1*/
+			return (0);      /*change return value from 0 to 1*/
                     }
                 }
 		else
