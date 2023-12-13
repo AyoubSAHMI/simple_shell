@@ -1,5 +1,4 @@
 #include "shell.h"
-extern char **environ;
 /**
 * fullPath - A function that returns the path
 * @command: the command we search its path
@@ -7,17 +6,21 @@ extern char **environ;
 */
 char *fullPath(char *command)
 {
-char *dir, *fullpath, *paths, *path = _getenv("PATH");
+extern char **environ;
+ char *dir, *fullpath, *paths, *path/* = _getenv("PATH")*/;
 struct stat buff;
 int i = 0;
+char *name;
+/**
 if (path == NULL)
 {
 perror("not found\n");
 return (NULL);
 }
+*/
 while (environ[i] != NULL)
 {
-char *name = strtok(environ[i], "=");
+name = strtok(environ[i], "=");
 if (_strcmp(name, "PATH") == 0)
 break;
 i++;
@@ -110,6 +113,7 @@ return (0);
 */
 char *_getenv(const char *name)
 {
+  extern char **environ;
 while (*environ != NULL)
 {
 char *entry = *environ;
