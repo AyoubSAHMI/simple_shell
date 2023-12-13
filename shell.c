@@ -70,7 +70,7 @@ int main(void)
 	    free(buffer);
             free(av);
 	    return (0);
-	    exit(EXIT_SUCCESS);
+	    _exit(0);
         }
         if (_strcmp(av[0], "env") == 0)
 	  {
