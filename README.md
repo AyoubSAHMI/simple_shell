@@ -3,7 +3,7 @@
 
 This directory contains files for the project 0x16. C - Simple Shell by Julien Barbier
 
-Project done by the team : 
+Project done by the team :
 - Hajar El Mannani
 - Ayoub Sahmi
 
@@ -85,10 +85,10 @@ $
 ```
 **************************************************************************************************
 ##Tasks for this project
-###Task 0. Betty would be proud 
+###Task 0. Betty would be proud
 Write a beautiful code that passes the Betty checks
 
-###task 1. Simple shell 0.1 
+###task 1. Simple shell 0.1
 Write a UNIX command line interpreter.
 
     Usage: `simple_shell`
@@ -111,7 +111,7 @@ You don’t have to:
     be able to move the cursor
     handle commands with arguments
 
-###Task 2. Simple shell 0.2 
+###Task 2. Simple shell 0.2
 Simple shell 0.1 +
 
     Handle command lines with arguments
@@ -223,4 +223,3 @@ Simple shell 1.0 +
     The file contains all the commands that your shell should run before exiting
     The file should contain one command per line
     In this mode, the shell should not print a prompt and should not read from `stdin`
-
