@@ -21,15 +21,18 @@ int main(void)
 
     while (1)
     {
-        if (interactive) {
+        if (interactive)
+	  {
             /* Display shell prompt in interactive mode*/
             write(1, "cisfun$ ", 8);
             fflush(stdout);
         }
 
         a = getline(&buffer, &len, stdin);
-        if (a == -1) {
-            if (interactive) {
+        if (a == -1)
+	  {
+            if (interactive)
+	      {
 	      /* Handle EOF in interactive mode */
                 write(STDOUT_FILENO, "\n", 1);
             }
@@ -39,11 +42,13 @@ int main(void)
         }
 
         /* Trim newline character */
-        if (buffer[a - 1] == '\n') {
+        if (buffer[a - 1] == '\n')
+	  {
             buffer[a - 1] = '\0';
         }
 
-        if (_strcmp(buffer, "") == 0) {
+        if (_strcmp(buffer, "") == 0)
+	  {
                 continue;  /* Ignore empty lines */
         }
 
@@ -55,27 +60,31 @@ int main(void)
         token = strtok(buffer, " \n");
         
         i = 0;
-        while (token != NULL) {
+        while (token != NULL)
+	  {
             av[i] = token;
             token = strtok(NULL, " \n");
             i++;
         }
         av[i] = NULL;
 
-        if (_strcmp(av[0], "exit") == 0) {
+        if (_strcmp(av[0], "exit") == 0)
+	  {
             free(buffer);
             free(av);
             exit(0);
         }
 
-        if (_strcmp(av[0], "env") == 0) {
-            _env();
-	    
-        }else
+        if (_strcmp(av[0], "env") == 0)
+	  {
+            _env();  
+        }
+	else
 	  {
             pexist = pathexist(av[0]);
 
-            if (pexist == 0) {
+            if (pexist == 0)
+	      {
                 program_path = getcwd(NULL, 0);
                 /* anzidou hadi */
                 if (program_path == NULL)
@@ -99,27 +108,34 @@ int main(void)
                 write(STDERR_FILENO, av[0], _strlen(av[0]));
                 write(STDERR_FILENO, ": No such file or directory\n", 28);
                 free(program_path); /*an7etou hadi hnaya */
-            }
-            else {
+		exit(1);
+              }
+            else
+	      {
                 pid = fork();
 
-                if (pid == -1) {
+                if (pid == -1)
+		  {
                     perror(av[0]);
                     free(av);
                     free(buffer);
 		    exit(1); /*changement de -1 à 1 */
                 }
 
-                if (pid == 0) {
+                if (pid == 0)
+		  {
                     command = fullPath(av[0]);
-                    if (execve(command, av, environ) == -1) {
+                    if (execve(command, av, environ) == -1)
+		      {
                         perror(av[0]);
                         free(command);
                         free(av); /*je teste ici free ya rebbi */
                         free(buffer);
 			exit(1);      /*change return value from 0 to 1*/
                     }
-                } else {
+                }
+		else
+		  {
                     wait(&status);
                     free(command);
                 }
