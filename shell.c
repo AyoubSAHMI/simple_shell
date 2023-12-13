@@ -70,8 +70,6 @@ int main(void)
             free(buffer);
             free(av);
 	    return (0);
-	    /*anjereb hnaya */
-	    exit(0);
         }
         if (_strcmp(av[0], "env") == 0)
 	  {
@@ -128,7 +126,8 @@ int main(void)
                         free(command);
                         free(av); /*je teste ici free ya rebbi */
                         free(buffer);
-			return (1);      /*change return value from 0 to 1*/
+			return (1);	/*change return value from 0 to 1*/
+			exit(EXIT_FAILURE); /* petit test */
                     }
                 }
 		else
