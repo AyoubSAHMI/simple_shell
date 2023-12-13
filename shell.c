@@ -90,7 +90,7 @@ int main(void)
                        perror("getcwd");
                        free(buffer);
                        free(av);
-		       return (0);;
+		       return (0);
                 }/* salat hnaya */
                 if (program_path != NULL)
                 {
