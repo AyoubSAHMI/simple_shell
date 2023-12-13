@@ -1,5 +1,5 @@
 #include "shell.h"
-int main(void) 
+int main(void)
 {
     extern char **environ;
     char *buffer = NULL;

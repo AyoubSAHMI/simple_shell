@@ -11,7 +11,7 @@ struct stat buff;
 int i = 0;
 if (path == NULL)
 {
-perror("PATH not found\n");
+perror("not found\n");
 return (NULL);
 }
 while (environ[i] != NULL)
