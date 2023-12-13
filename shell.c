@@ -48,8 +48,12 @@ int main(void)
         }
 
         av = malloc(sizeof(char *) * 1024);
+	if (av == NULL)
+	  {
+	  return (-1);
+	  }
         token = strtok(buffer, " \n");
-
+        
         i = 0;
         while (token != NULL) {
             av[i] = token;
@@ -62,6 +66,7 @@ int main(void)
             free(buffer);
             free(av);
             exit(0);
+	    return (0);
         }
 
         if (_strcmp(av[0], "env") == 0) {

@@ -1,4 +1,5 @@
 #include "shell.h"
+extern char **environ;
 /**
 * fullPath - A function that returns the path
 * @command: the command we search its path
@@ -135,6 +136,7 @@ return (NULL);
  */
 void _env(void)
 {
+extern char **environ; 
 int i;
 for (i = 0; environ[i] != NULL; i++)
 {
