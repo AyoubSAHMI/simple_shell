@@ -30,12 +30,12 @@ int main(void)
         a = getline(&buffer, &len, stdin);
         if (a == -1) {
             if (interactive) {
-                /* Handle EOF in interactive mode */
+	      /* Handle EOF in interactive mode */
                 write(STDOUT_FILENO, "\n", 1);
             }
             free(buffer);
              /* Free av here reje3ha matnssach */
-            return (1);
+            exit(1);
         }
 
         /* Trim newline character */
@@ -82,7 +82,7 @@ int main(void)
                        perror("getcwd");
                        free(buffer);
                        free(av);
-                       return (1);
+		       exit(0);
                 }/* salat hnaya */
                 if (program_path != NULL)
                 {
